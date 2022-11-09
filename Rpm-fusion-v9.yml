@@ -1,0 +1,13 @@
+---
+ - name: Build test
+   hosts: 192.168.0.31
+   become_method: sudo
+   gather_facts: false
+   tasks:
+      #Add repositories 
+     - name: Install free rpmfusion
+       shell: rpm -ivh https://download1.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm
+       ignore_errors: true
+     - name: Install non-free rpmfusion
+       shell: rpm -ivh https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-9.noarch.rpm
+       ignore_errors: true
